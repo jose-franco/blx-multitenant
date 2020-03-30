@@ -1,4 +1,5 @@
-﻿using Multitenant.Repository;
+﻿using Finbuckle.MultiTenant.Stores;
+using Multitenant.Repository;
 using Multitenant.Repository.SqlServer;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -9,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddDbContext<SampleContext>();
             services.AddMultiTenant()
-                    .WithEFCoreStore<AppDbContext>(connectionString)
+                    .WithEFCoreStore<EFCoreStoreDbContext>(connectionString)
                     .WithRouteStrategy();
         }
 
